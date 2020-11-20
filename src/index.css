@@ -1,8 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
-  
+  /* reset and stuff */
   margin: 0;
+  overflow: hidden;
+  /* layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background */
   background: linear-gradient(207.27deg, #EDE9C4 -16.42%, #649173 105.61%);
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* font styling */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  color: #222222;
 }
+
+body h1 {
+  font-size: 35px;
+  margin: 2rem 0;
+}
+
+body div#root { display: contents; }

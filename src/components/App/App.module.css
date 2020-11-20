@@ -1,0 +1,32 @@
+.innerDiv {
+  width: 90%;
+  height: 75%;
+  background-color: #EDE9C4;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileLabel {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 7px dashed #649173;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 3rem 4rem;
+  color: #649173;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.fileLabel strong {
+  color: #EDE9C4;
+  background: #649173;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+.uploadState {
+  display: none;
+}
