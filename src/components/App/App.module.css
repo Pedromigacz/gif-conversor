@@ -2,6 +2,19 @@
   width: 90%;
   height: 75%;
   background-color: #EDE9C4;
+  display: grid;
+  place-items: center;
+}
+
+button {
+  background-color: #649173;
+  color: #EDE9C4;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  margin: 1rem;
 }
 
 .fileInput {
@@ -18,6 +31,8 @@
   color: #649173;
   font-size: 1.5rem;
   font-weight: bold;
+  margin: 1rem;
+  transition: ease 300ms;
 }
 
 .fileLabel strong {
@@ -29,4 +44,9 @@
 
 .uploadState {
   display: none;
+}
+
+.onDragOverClass {
+  background-color: rgba(100, 145, 115, 0.3);
+  padding: 4rem 5rem;
 }
