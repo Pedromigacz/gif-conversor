@@ -18,6 +18,11 @@ button {
   cursor: pointer;
 }
 
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .fileInput {
   display: none;
 }
