@@ -38,13 +38,14 @@ function App() {
     // Write the file to memory 
     ffmpeg.FS('writeFile', 'test.mp4', await fetchFile(video))
 
-    await ffmpeg.run('-i', 'test.mp4', '-t', '2.5', '-ss', '2.0', '-f', 'gif', 'out.gif')
+    await ffmpeg.run('-i', 'test.mp4', '-ss', '0', '-f', 'gif', 'out.gif')
 
     // Read the result
     const data = ffmpeg.FS('readFile', 'out.gif')
-
+    console.log('DATA', data.buffer)
     // Create a URL
     const url = URL.createObjectURL(new Blob([data.buffer], { type: 'image/gif' }))
+    URL.revokeObjectURL(gif)
     setGif(url)
   }
 
@@ -115,7 +116,7 @@ function App() {
             <div className={styles.uploadState}>Uploading...</div>
           </form>
           {gif && <span className={styles.downloadContainer}>
-            <img src={gif} className={styles.convertedGif}/>
+            <img src={gif} className={styles.convertedGif} alt="converted gif"/>
             <a href={gif} download><button>Download</button></a>
           </span>}
         </>
