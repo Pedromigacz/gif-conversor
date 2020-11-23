@@ -56,3 +56,7 @@ button {
   background-color: rgba(100, 145, 115, 0.3);
   padding: 4rem 5rem;
 }
+
+.convertedGif {
+  width: 300px;
+}
