@@ -114,6 +114,10 @@ function App() {
             </div>
             <div className={styles.uploadState}>Uploading...</div>
           </form>
+          {gif && <span className={styles.downloadContainer}>
+            <img src={gif} className={styles.convertedGif}/>
+            <a href={gif} download><button>Download</button></a>
+          </span>}
         </>
       ) : 'Loading...'}
     </div>
