@@ -115,7 +115,7 @@ function App() {
             </div>
             <div className={styles.uploadState}>Uploading...</div>
           </form>
-          {progress && <progress value={progress} max="100" className={styles.progressBar}/>}
+          {progress && (progress !== 100) && <progress value={progress} max="100" className={styles.progressBar}/>}
           {gif && <span className={styles.downloadContainer}>
             <img src={gif} className={styles.convertedGif} alt="converted gif"/>
             <a href={gif} download><button>Download</button></a>
