@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './App.module.css'
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg'
-const ffmpeg = createFFmpeg({ log: true })
+let ffmpeg
 
 function App() {
   // load state
@@ -10,12 +10,12 @@ function App() {
   const [video, setVideo] = useState('')
   const [gif, setGif]   = useState()
   // UI state
-  const [dragOver, setDragOver ] = useState(false)
+  const [dragOver, setDragOver ]  = useState(false)
   const [nOfEnters, setNOfEnters] = useState(0)
+  const [progress, setProgress]   = useState(null)
   
-  useEffect(() => {console.log('GIF:', gif)}, [gif])
-
   const load = async () => {
+    ffmpeg = createFFmpeg({ log: true, progress: p => {setProgress(Math.floor(p.ratio * 100))}})
     try {
       await ffmpeg.load()
       setReady(true)
@@ -23,17 +23,17 @@ function App() {
       console.log(error)
     }
   }
-
+  
   useEffect(() => {
     load()
   }, [])
-
+  
   const handleSubmit = async e => {
     e.preventDefault()
     await convertToGif()
     console.log(gif)
   }
-
+  
   const convertToGif = async () => {
     // Write the file to memory 
     ffmpeg.FS('writeFile', 'test.mp4', await fetchFile(video))
@@ -115,6 +115,7 @@ function App() {
             </div>
             <div className={styles.uploadState}>Uploading...</div>
           </form>
+          {progress && <progress value={progress} max="100" className={styles.progressBar}/>}
           {gif && <span className={styles.downloadContainer}>
             <img src={gif} className={styles.convertedGif} alt="converted gif"/>
             <a href={gif} download><button>Download</button></a>

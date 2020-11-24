@@ -69,3 +69,25 @@ button {
   margin: 1rem;
   height: 139px;
 }
+
+
+progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 8px;
+  background-color: red;
+}
+
+progress::-webkit-progress-value {
+  background-color: #649173;
+}
+
+progress::-webkit-progress-bar {
+  background: #EDE9C4;
+}
+
+progress::-moz-progress-bar {
+  background: #649173;
+}
